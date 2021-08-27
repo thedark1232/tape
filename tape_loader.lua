@@ -1,10 +1,14 @@
 
+
 local tape_drive_helper = {}
 local component = require("component")
 local filesystem = require("filesystem")
+local filesLibrary = require("filesLibrary")
+local local serialization = require("serialization")
 local chat = {}
 local koppekTuPoBka = 4300
 local KoHe4Ha9l_Ta6JIuca_roJIocoB = {}
+local Ha3BaHue_qpauJIa_roJIocoB = "/lib/qpauJI_roJIocoB.lua"
 local Ha3BaHue_nanku_tape_qpauJIoB = "/tape_drive/"
 local nporpaMMa_3anucu_Ha_KacceTy = {"https://raw.githubusercontent.com/thedark1232/tape/main/tape.lua", "tape.lua"}
 local nporpaMMa_6u6JIuoTeka = {"https://raw.githubusercontent.com/thedark1232/tape/main/tape_loader.lua", "/lib/tape_loader.lua"}
@@ -84,6 +88,7 @@ local function zanuCb_Ta6Jlucbl_roJIocoB_Ha_kaCeTy(Ta6JIuca_qpauJIoB, Ha3BaHue_c
 			os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " write " .. Ha3BaHue_nanku_tape_qpauJIoB .. Ta6JIuca_qpauJIoB[i][2] .. " -q")
 			--os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " seek " .. " -q")
 		end
+		filesLibrary.creat_file(Ha3BaHue_qpauJIa_roJIocoB, serialization.serialize(KoHe4Ha9l_Ta6JIuca_roJIocoB))
 		os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
 		tape_drive_message("загрузка прошла успшено")
 	else
@@ -100,19 +105,48 @@ function tape_drive_helper.ygaJIuTb_qpauJIbl_roJIocoB()
 	end
 end
 function tape_drive_helper.BoCnpou3BecTu_qpauJI(Ha3BaHue_qpauJIa, CBou_apryMeHT)
-	local tape_drive = component.tape_drive
-	if tape_drive.isReady() then 
-		local no3ucu9l_ocTaHoBku
-		if CBou_apryMeHT == nil or CBou_apryMeHT == 0 or CBou_apryMeHT == "" then
-			no3ucu9l_ocTaHoBku = KoHe4Ha9l_Ta6JIuca_roJIocoB[Ha3BaHue_qpauJIa]["koHe4Ha9l_no3ucu9l"]
-		else
-			no3ucu9l_ocTaHoBku = tonumber(CBou_apryMeHT)
+	if component.isAvailable("tape_drive")
+		local tape_drive = component.tape_drive
+		if tape_drive.isReady() then
+			if tape_drive.getSize() < 7800000 then
+				return
+			end
+			local no3ucu9l_ocTaHoBku
+			local result_file = filesLibrary.write_file(Ha3BaHue_qpauJIa_roJIocoB, "fileNotCreate")
+			if result_file == "fileNotCreate" then
+				return
+			else
+				KoHe4Ha9l_Ta6JIuca_roJIocoB = serialization.unserialize(result_file)
+			end	
+			if CBou_apryMeHT == nil or CBou_apryMeHT == 0 or CBou_apryMeHT == "" then
+				no3ucu9l_ocTaHoBku = KoHe4Ha9l_Ta6JIuca_roJIocoB[Ha3BaHue_qpauJIa]["koHe4Ha9l_no3ucu9l"]
+			else
+				no3ucu9l_ocTaHoBku = tonumber(CBou_apryMeHT)
+			end
+			os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
+			tape_drive.seek(KoHe4Ha9l_Ta6JIuca_roJIocoB[Ha3BaHue_qpauJIa]["CTapToBa9l_no3ucu9l"])
+			tape_drive.play()
+			repeat until tape_drive.getPosition() >= no3ucu9l_ocTaHoBku
+			tape_drive.stop()
 		end
-		os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
-		tape_drive.seek(KoHe4Ha9l_Ta6JIuca_roJIocoB[Ha3BaHue_qpauJIa]["CTapToBa9l_no3ucu9l"])
-		tape_drive.play()
-		repeat until tape_drive.getPosition() >= no3ucu9l_ocTaHoBku
-		tape_drive.stop()
 	end
 end
+
+function tape_drive_helper.npoBepka_cocTo9lHu9l_u_BblBog_Ha_chat_box()
+	if component.isAvailable("tape_drive")
+		tape_drive_message("тап драйв не доступен", Ha3BaHuee_chat_box_uu_6a3bl)
+		if not tape_drive.isReady() then
+			tape_drive_message("кассета не вставлена", Ha3BaHue_chat_box)
+			return
+		end
+		if tape_drive.getSize() < 7800000 then
+			tape_drive_message("нужна кассета объёмом более 30 минут")
+			return
+		end
+	else
+		tape_drive_message("тап драйв не доступен", Ha3BaHuee_chat_box_uu_6a3bl)
+	end
+end
+
+
 return tape_drive_helper
