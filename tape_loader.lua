@@ -1,4 +1,5 @@
 
+
 local tape_drive_helper = {}
 local component = require("component")
 local filesystem = require("filesystem")
@@ -33,7 +34,12 @@ local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark12
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/sSTAILl.dfpwm", "sSTAILl.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/serg12812.dfpwm", "serg12812.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/x_Dark_Angel_x.dfpwm", "x_Dark_Angel_x.dfpwm", 10000},
-								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "zaIIIeJI_B_urpy.dfpwm", 10000}}
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "zaIIIeJI_B_urpy.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "Emo_kid.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "GanGsSstA.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "lerdo123.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "nokaJu_4JIeH_a_9l_Te6e_cBou.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zaIIIeJI_B_urpy.dfpwm", "the_dark.dfpwm", 10000},}
 								   				   
 local function deb_enter(text)
 	if text == nil then text = "жми энтер" end
