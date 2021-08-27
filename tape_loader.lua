@@ -1,10 +1,9 @@
 
-
 local tape_drive_helper = {}
 local component = require("component")
 local filesystem = require("filesystem")
 local filesLibrary = require("filesLibrary")
-local local serialization = require("serialization")
+local serialization = require("serialization")
 local chat = {}
 local koppekTuPoBka = 4300
 local KoHe4Ha9l_Ta6JIuca_roJIocoB = {}
@@ -90,7 +89,7 @@ local function zanuCb_Ta6Jlucbl_roJIocoB_Ha_kaCeTy(Ta6JIuca_qpauJIoB, Ha3BaHue_c
 		end
 		filesLibrary.creat_file(Ha3BaHue_qpauJIa_roJIocoB, serialization.serialize(KoHe4Ha9l_Ta6JIuca_roJIocoB))
 		os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
-		tape_drive_message("загрузка прошла успшено")
+		tape_drive_message("загрузка прошла успешено")
 	else
 		tape_drive_message("стример не найден", Ha3BaHue_chat_box)
 		return false
@@ -105,7 +104,7 @@ function tape_drive_helper.ygaJIuTb_qpauJIbl_roJIocoB()
 	end
 end
 function tape_drive_helper.BoCnpou3BecTu_qpauJI(Ha3BaHue_qpauJIa, CBou_apryMeHT)
-	if component.isAvailable("tape_drive")
+	if component.isAvailable("tape_drive") then
 		local tape_drive = component.tape_drive
 		if tape_drive.isReady() then
 			if tape_drive.getSize() < 7800000 then
@@ -133,7 +132,7 @@ function tape_drive_helper.BoCnpou3BecTu_qpauJI(Ha3BaHue_qpauJIa, CBou_apryMeHT)
 end
 
 function tape_drive_helper.npoBepka_cocTo9lHu9l_u_BblBog_Ha_chat_box()
-	if component.isAvailable("tape_drive")
+	if component.isAvailable("tape_drive") then
 		tape_drive_message("тап драйв не доступен", Ha3BaHuee_chat_box_uu_6a3bl)
 		if not tape_drive.isReady() then
 			tape_drive_message("кассета не вставлена", Ha3BaHue_chat_box)
