@@ -10,7 +10,7 @@ local KoHe4Ha9l_Ta6JIuca_roJIocoB = {}
 local Ha3BaHue_qpauJIa_roJIocoB = "/lib/qpauJI_roJIocoB.lua"
 local Ha3BaHue_nanku_tape_qpauJIoB = "/tape_drive/"
 local nporpaMMa_3anucu_Ha_KacceTy = {"https://raw.githubusercontent.com/thedark1232/tape/main/tape.lua", "tape.lua"}
-local nporpaMMa_6u6JIuoTeka = {"https://raw.githubusercontent.com/thedark1232/tape/main/tape_loader.lua", "/lib/tape_loader.lua"}
+local nporpaMMa_6u6JIuoTeka = {{"https://raw.githubusercontent.com/thedark1232/tape/main/tape_loader.lua", "/lib/tape_loader.lua"}}
 local Ha3BaHuee_chat_box_uu_6a3bl = "§aИИ базы"
 local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark1232/tape/main/minecraft_xyuH9l.dfpwm", "minecraft_xyuH9l.dfpwm", 12000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/BblIIIeJI_u3_urpbl.dfpwm", "BblIIIeJI_u3_urpbl.dfpwm", 10000},
@@ -38,15 +38,14 @@ local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark12
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/GanGsSstA.dfpwm", "GanGsSstA.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/lerdo123.dfpwm", "lerdo123.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/nokaJu_4JIeH_a_9l_Te6e_cBou.dfpwm", "nokaJu_4JIeH_a_9l_Te6e_cBou.dfpwm", 10000},
-								   {"https://raw.githubusercontent.com/thedark1232/tape/main/the_dark.dfpwm", "the_dark.dfpwm", 10000}}
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/the_dark.dfpwm", "the_dark.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/nugpuJIa_MaJIoJIeTH9l9l.dfpwm", "nugpuJIa_MaJIoJIeTH9l9l.dfpwm", 10000}}
 								   				   
 local function deb_enter(text)
 	if text == nil then text = "жми энтер" end
 	print(text)
 	local del = io.read()
 end
-
-
 local function tape_drive_message(TekcT_oIIIu6ku, Ha3BaHue_chat_box)
 	Ha3BaHue_chat_box = Ha3BaHue_chat_box or "§aУстановщик tape_drive"
 	if component.isAvailable("chat_box") then 
@@ -58,7 +57,6 @@ local function tape_drive_message(TekcT_oIIIu6ku, Ha3BaHue_chat_box)
 		print(TekcT_oIIIu6ku)
 	end
 end
-
 local function ycTaHoBIIIuk_qpauJIoB(Ta6JIuca_qpauJIoB, Ha3BaHue_chat_box)
 	if component.isAvailable("internet") then
 		if not filesystem.exists(Ha3BaHue_nanku_tape_qpauJIoB) then filesystem.makeDirectory(Ha3BaHue_nanku_tape_qpauJIoB) end
@@ -71,8 +69,6 @@ local function ycTaHoBIIIuk_qpauJIoB(Ta6JIuca_qpauJIoB, Ha3BaHue_chat_box)
 		return false
 	end
 end
-
-
 local function zanuCb_Ta6Jlucbl_roJIocoB_Ha_kaCeTy(Ta6JIuca_qpauJIoB, Ha3BaHue_chat_box)
 	if component.isAvailable("tape_drive") then
 		local tape_drive = component.tape_drive
@@ -135,7 +131,6 @@ function tape_drive_helper.BoCnpou3BecTu_qpauJI(Ha3BaHue_qpauJIa, CBou_apryMeHT)
 		end
 	end
 end
-
 function tape_drive_helper.npoBepka_cocTo9lHu9l_u_BblBog_Ha_chat_box()
 	if component.isAvailable("tape_drive") then
 		tape_drive_message("тап драйв не доступен", Ha3BaHuee_chat_box_uu_6a3bl)
@@ -151,6 +146,12 @@ function tape_drive_helper.npoBepka_cocTo9lHu9l_u_BblBog_Ha_chat_box()
 		tape_drive_message("тап драйв не доступен", Ha3BaHuee_chat_box_uu_6a3bl)
 	end
 end
-
-
+function tape_drive_helper.ycTaHoBka_ocHoBHou_nporu()
+	ycTaHoBIIIuk_qpauJIoB(nporpaMMa_6u6JIuoTeka)
+end
+function tape_drive_helper.zanucb_ogHoro_qpauJIa_Ha_KaceTy(Ha3BaHue_qpauJIa)
+	--записывает на начало кассеты
+	os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
+	os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " write " .. Ha3BaHue_nanku_tape_qpauJIoB .. Ha3BaHue_qpauJIa .. " -q")
+end
 return tape_drive_helper
