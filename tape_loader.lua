@@ -5,14 +5,15 @@ local filesystem = require("filesystem")
 local filesLibrary = require("filesLibrary")
 local serialization = require("serialization")
 local chat = {}
-local koppekTuPoBka = 4300
+local koppekTuPoBka = 1300
+local BpeM9l_3agepJku = 3000
 local KoHe4Ha9l_Ta6JIuca_roJIocoB = {}
 local Ha3BaHue_qpauJIa_roJIocoB = "/lib/qpauJI_roJIocoB.lua"
 local Ha3BaHue_nanku_tape_qpauJIoB = "/tape_drive/"
 local nporpaMMa_3anucu_Ha_KacceTy = {"https://raw.githubusercontent.com/thedark1232/tape/main/tape.lua", "tape.lua"}
 local nporpaMMa_6u6JIuoTeka = {{"https://raw.githubusercontent.com/thedark1232/tape/main/tape_loader.lua", "/lib/tape_loader.lua"}}
 local Ha3BaHuee_chat_box_uu_6a3bl = "§aИИ базы"
-local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark1232/tape/main/minecraft_xyuH9l.dfpwm", "minecraft_xyuH9l.dfpwm", 12000},
+local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark1232/tape/main/minecraft_xyuH9l.dfpwm", "minecraft_xyuH9l.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/BblIIIeJI_u3_urpbl.dfpwm", "BblIIIeJI_u3_urpbl.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/BblnoJIH9lI0_KoMaHgy.dfpwm", "BblnoJIH9lI0_KoMaHgy.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/BblnoJIH9lI0_pecTapT_ceTu.dfpwm", "BblnoJIH9lI0_pecTapT_ceTu.dfpwm", 10000},
@@ -39,7 +40,13 @@ local Ta6JIuca_3anuceu_uu_6a3bl = {{"https://raw.githubusercontent.com/thedark12
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/lerdo123.dfpwm", "lerdo123.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/nokaJu_4JIeH_a_9l_Te6e_cBou.dfpwm", "nokaJu_4JIeH_a_9l_Te6e_cBou.dfpwm", 10000},
 								   {"https://raw.githubusercontent.com/thedark1232/tape/main/the_dark.dfpwm", "the_dark.dfpwm", 10000},
-								   {"https://raw.githubusercontent.com/thedark1232/tape/main/nugpuJIa_MaJIoJIeTH9l9l.dfpwm", "nugpuJIa_MaJIoJIeTH9l9l.dfpwm", 10000}}
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/nugpuJIa_MaJIoJIeTH9l9l.dfpwm", "nugpuJIa_MaJIoJIeTH9l9l.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/BpeM9l_3agepJku_ycTaHoBJIeHo.dfpwm", "BpeM9l_3agepJku_ycTaHoBJIeHo.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/npuBeTcTByeM_agMuHucTpacul0_B_HallleM_npuBaTe.dfpwm", "npuBeTcTByeM_agMuHucTpacul0_B_HallleM_npuBaTe.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zdraBcTByu_gpyr.dfpwm", "zdraBcTByu_gpyr.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zdraBcTByu_JIopg_The_Dark.dfpwm", "zdraBcTByu_JIopg_The_Dark.dfpwm", 10000},
+								   {"https://raw.githubusercontent.com/thedark1232/tape/main/zdraBcTByu_nyTHuk.dfpwm", "zdraBcTByu_nyTHuk.dfpwm", 10000}
+								   }
 								   				   
 local function deb_enter(text)
 	if text == nil then text = "жми энтер" end
@@ -126,7 +133,7 @@ function tape_drive_helper.BoCnpou3BecTu_qpauJI(Ha3BaHue_qpauJIa, CBou_apryMeHT)
 			os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
 			tape_drive.seek(KoHe4Ha9l_Ta6JIuca_roJIocoB[Ha3BaHue_qpauJIa]["CTapToBa9l_no3ucu9l"])
 			tape_drive.play()
-			repeat until tape_drive.getPosition() >= no3ucu9l_ocTaHoBku
+			repeat until tape_drive.getPosition() >= no3ucu9l_ocTaHoBku + BpeM9l_3agepJku
 			tape_drive.stop()
 		end
 	end
@@ -153,5 +160,11 @@ function tape_drive_helper.zanucb_ogHoro_qpauJIa_Ha_KaceTy(Ha3BaHue_qpauJIa)
 	--записывает на начало кассеты
 	os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " rewind -q")
 	os.execute("/lib/" .. nporpaMMa_3anucu_Ha_KacceTy[2] .. " write " .. Ha3BaHue_nanku_tape_qpauJIoB .. Ha3BaHue_qpauJIa .. " -q")
+end
+function tape_drive_helper.getBpeM9l_3adepJku()
+	return BpeM9l_3agepJku
+end
+function tape_drive_helper.setBpeM9l_3agepJku(argyMeHT_BpeMeHu)
+	BpeM9l_3agepJku = argyMeHT_BpeMeHu
 end
 return tape_drive_helper
